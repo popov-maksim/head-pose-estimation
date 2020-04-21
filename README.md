@@ -14,8 +14,10 @@ Simple way to run the app is to build (takes time) docker image from given Docke
 Then just run docker container.
 
 **Command to pull image:** docker pull maxloki/head_pose
+
 **Command to run container with stream from webcam:**
 *docker run --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest*
+
 **Command to run container with stream from video:**
 *docker run -v /path/to/videofilename:/videofilename --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest -s videofilename*
 
