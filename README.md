@@ -12,9 +12,11 @@ It was made to work on video.
 #### Using docker container
 Simple way to run the app is to build (takes time) docker image from given Dockerfile or download ready one from DockerHub.
 Then just run docker container.
-##### Command to run container with stream from webcam:
+
+**Command to pull image:** docker pull maxloki/head_pose
+**Command to run container with stream from webcam:**
 *docker run --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest*
-##### Command to run container with stream from video:
+**Command to run container with stream from video:**
 *docker run -v /path/to/videofilename:/videofilename --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest -s videofilename*
 
 #### Locally from src
@@ -23,6 +25,3 @@ It takes one optional parameter *-s [SOURCE]*, give there path to a videofile if
 
 #### How to exit
 To exit the app just press 'q'
-
-# How it looks like
-![video example](https://github.com/popov-maksim/head-pose-estimation/tree/master/img/video.png)
