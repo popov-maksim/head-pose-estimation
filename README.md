@@ -25,4 +25,4 @@ It takes one optional parameter *-s [SOURCE]*, give there path to a videofile if
 To exit the app just press 'q'
 
 # How it looks like
-![video example](img/video.png)
+![video example](https://github.com/popov-maksim/head-pose-estimation/tree/master/img/video.png)
