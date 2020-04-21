@@ -8,7 +8,7 @@ It was made to work on video.
 - Pointing line from nose point is shown (it shows face position regarding the camera)
 - Video stream either from webcam or from given video shown on a screen
 
-# Usage
+# Usage (it was tested on Ubuntu)
 #### Using docker container
 Simple way to run the app is to build (takes time) docker image from given Dockerfile or download ready one from DockerHub.
 Then just run docker container.
