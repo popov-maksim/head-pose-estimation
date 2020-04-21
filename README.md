@@ -13,7 +13,7 @@ It was made to work on video.
 Simple way to run the app is to build (takes time) docker image from given Dockerfile or download ready one from DockerHub.
 Then just run docker container.
 
-**Command to pull image:** docker pull maxloki/head_pose
+**Command to pull image:** docker pull maxloki/head_pose:ready
 
 **Command to run container with stream from webcam:**
 *docker run --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest*
