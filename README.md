@@ -13,17 +13,19 @@ It was made to work on video.
 Simple way to run the app is to build (takes time) docker image from given Dockerfile or download ready one from DockerHub.
 Then just run docker container.
 
+**Before running container execute command *xhost +***
+
 **Command to pull image:** docker pull maxloki/head_pose:ready
 
 **Command to run container with stream from webcam:**
-*docker run --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest*
+*docker run --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY maxloki/head_pose:ready*
 
 **Command to run container with stream from video:**
-*docker run -v /path/to/videofilename:/videofilename --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest -s videofilename*
+*docker run -v /path/to/videofilename:/videofilename -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY maxloki/head_pose:ready -s videofilename*
 
 #### Locally from src
 Also it is possible to run the app from **src** folder just typing *python main.py* (you need installed opencv and dlib).
-It takes one optional parameter *-s [SOURCE]*, give there path to a videofile if you want to use stream from video, don't pass anything if you want stream from webcam.  
+It takes one optional parameter *-s [SOURCE]*, give there path to a videofile if you want to use stream from video, don't pass anything if you want stream from webcam.
 
 #### How to exit
 To exit the app just press 'q'
