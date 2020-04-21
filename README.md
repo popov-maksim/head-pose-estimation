@@ -1,13 +1,28 @@
 # Head pose estimation
 This repo contains implementation of an algorithm for head pose estimation of a person on a given video.
 There was used this [guide](https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/) describing how to implement head pose estimation from a given image.
-It was made to work on video.
+It was made to work on video. 
 
-## Requirements
-- The source of video could be a file or a stream from a web camera.
-- Information to be displayed on each frame of the resulting video: source frame, 5 landmark points of a face, a ray pointing from a person’s nose
-- You can use OpenCV, Dlib and whatever you find useful
-- Minimum resolution of a video: 480p.
-- There should be one person on a video. Height of a person’s face should be at least 1/3 of the height of the video in terms of pixels.
+# Functionality
+- Six points on a frame are determined: left eye left corner, right eye right corner, chin, nose, mouth left and right corners
+- Pointing line from nose point is shown (it shows face position regarding the camera)
+- Video stream either from webcam or from given video shown on a screen
 
+# Usage
+#### Using docker container
+Simple way to run the app is to build (takes time) docker image from given Dockerfile or download ready one from DockerHub.
+Then just run docker container.
+##### Command to run container with stream from webcam:
+*docker run --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest*
+##### Command to run container with stream from video:
+*docker run -v /path/to/videofilename:/videofilename --device=/dev/video0:/dev/video0 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY head_pose:latest -s videofilename*
 
+#### Locally from src
+Also it is possible to run the app from **src** folder just typing *python main.py* (you need installed opencv and dlib).
+It takes one optional parameter *-s [SOURCE]*, give there path to a videofile if you want to use stream from video, don't pass anything if you want stream from webcam.  
+
+#### How to exit
+To exit the app just press 'q'
+
+# How it looks like
+![video example](img/video.png)
